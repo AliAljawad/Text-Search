@@ -1,1 +1,1 @@
-# Text-Search
+In this project we have a search bar and a couple lines. When the user try to search for a matching character in the sentences below the matching characters will be highlighted. To run the application just dowloaded and open the html file using your browser. Thank you
