@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <h1>Search</h1>
+    <div>
+        <input type="text" id="search" placeholder="Search..." />
+    </div>
+    <p id="data">
+        Upload your completed project to your GitHub, and then paste a link to the repository below in the form along with any comments you have about your solution. Please include instructions on how to run the application in your README.md.</p>
+  </body>
+  <script>
+    const search = document.getElementById('search');
+    const data = document.getElementById('data');
+    
+    search.addEventListener('input', () => {
+      const value = search.value.toLowerCase();
+      const text =data.textContent.toLowerCase();
+      index=text.indexOf(value);
+      if (!value) {
+        data.innerHTML = text; 
+        return;
+      }
+      let highlightedDate=data.textContent;
+      while (index !== -1) {
+        highlightedDate= highlightedDate.substring(0, index) + "<mark>" + highlightedDate.substring(index, index + value.length) + "</mark>" + highlightedDate.substring(index +value.length);
+        index =highlightedDate.toLowerCase().indexOf(value, index + "<mark>".length + value.length + "</mark>".length);  
+        }
+        data.innerHTML = highlightedDate;
+    });
+  </script>
+</html>
